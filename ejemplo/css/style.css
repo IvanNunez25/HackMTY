@@ -1,0 +1,92 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+.grid-container {
+    display: flex;  
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.grid-item {
+    min-height: 200px;
+    max-width: 350px;
+    background-color: #343232;
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 7px;
+    text-align: center;
+    color: #fff;
+    transition: transform 0.3s;
+    margin-bottom: 30px;
+}
+
+.grid-item img {
+    max-width: 100px; /* Ancho máximo para las imágenes */
+    margin-top: 20px; /* Ajusta este valor para mover el logo hacia abajo */
+    border-radius: 50%; /* Bordas redondos para las imágenes */
+    margin-right: 0px;
+}
+
+.grid-item p {
+    margin-top: 20px; /* Espacio adicional arriba */
+    margin-bottom: 20px; /* Espacio adicional abajo */
+}
+
+.grid-item:hover{
+    transform: scale(1.1);
+}
+
+h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+p {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .grid-item {
+        margin: 10px 5px 0;
+        padding: 5px;
+        margin: 100px 10px 0px;
+    }
+
+    .logo img {
+        max-width: 80px;
+        margin-top: 5px;
+        margin-left: 10px;
+    }
+
+    .logo a {
+        margin: 5px 0; /* Espacio entre los enlaces */
+    }
+
+    .preguntas {
+        margin-top: 80px; /* Ajuste de espacio superior para la pregunta */
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

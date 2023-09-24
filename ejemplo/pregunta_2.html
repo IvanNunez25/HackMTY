@@ -5,50 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banorte - Pregunta #2 </title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/inicial.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
     <header>
 
-        <div class="logo">
-            <a href="#"> <img src="../imagenes/logo.png" alt="Banorte"></a>
-            <a href="preferente.html">Preferente</a>
-            <a href="pymes.html">Pymes</a>
-            <a href="empresas.html">Empresas</a>
-            <a href="gobierno.html">Gobierno</a>
-            <a href="casa_bolsa.html">Casa de Bolsa</a>
+        <div class="menu">
+            <img src="Recursos/logo.png" alt="Banorte">
         </div>
 
     </header>
 
-    <div class="preguntas">
-        <h1>Pregunta #2</h1>
-        <p>¿Cuáles de los temas te interesan más?</p>
-    </div>
+    <div class="principal">
+        <h2>¿Cuáles de los temas te interesan más?</h2>
+    
 
-    <div class="grid-container">
+    <div class="grid-container" value="abiental">
         <div class="grid-item">
-            <img src="../imagenes/Ambiente.png" alt="Logo 1">
+            <img src="Recursos/Ambiente.png" alt="Logo 1">
             <h2>Al medio ambiente</h2>
             <p>Elige la mejor tarjeta para ti y usala de inmediato. </p>
         </div>
-        <div class="grid-item">
-            <img src="../imagenes/Sociedad.png" alt="Logo 2">
+        <div class="grid-item" value="sociedad">
+            <img src="Recursos/Sociedad.png" alt="Logo 2">
             <h2>La sociedad</h2>
             <div>
                 <p><span>En 5 minutos invierte desde 1 día de plazo a partir de $5,000 MXN</span></p>
             </div>
         </div>
-        <div class="grid-item">
-            <img src="../imagenes/Gobierno.png" alt="Logo 3">
+        <div class="grid-item" value="gobierno">
+            <img src="Recursos/Gobierno.png" alt="Logo 3">
             <h2>La politica</h2>
             <p>Contrata tu credito o paga el actual y solicita uno nuevo.</p>
         </div>
 
     </div>
+</div>
 
-    <script src="app.js"></script>
-    <script>mostrar();</script>
+    <script src="scripts/app.js"></script>
+    <script>mostrar()</script>
 
 </html>

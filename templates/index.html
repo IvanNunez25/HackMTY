@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles.css">
+    <title>Invierte en tu futuro</title>
+</head>
+<body>
+    <header>
+        <h1>Invierte en tu futuro</h1>
+    </header>
+    <main>
+        <div class="search-container">
+            <h2>¿En que te gustaria invertir?</h2>
+            <form action="/buscar" method="post">
+                <input type="text" name="query" placeholder="Busquemos la mejor inversion para ti" required>
+                <button type="submit">Adelante</button>
+            </form>
+        </div>
+        <div class="results">
+            {% if query %}
+                <h2>Si buscas "{{ query }}" deberias invertir en: </h2>
+                <ul>
+                    {% for movie in recommended_movies %}
+                        <li>{{ movie }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Grupo Financiero Banorte.<br>
+            Derechos reservados.<br>
+            Términos Legales | Aviso de Privacidad</p>
+    </footer>
+</body>
+</html>

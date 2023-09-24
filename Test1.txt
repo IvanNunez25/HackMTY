@@ -1,0 +1,68 @@
+from flask import Flask, request, render_template
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import linear_kernel
+import sqlite3
+
+app = Flask(__name__)
+
+# Conectar a la base de datos SQLite
+conn = sqlite3.connect('movie_database.db')
+cursor = conn.cursor()
+
+# Definir una lista de películas (esto es un ejemplo, personalízala con tus datos)
+movies = [
+    "Titanic",
+    "Jurassic Park",
+    "Star Wars",
+    # Agrega más películas aquí...
+]
+
+# Cargar opiniones desde la base de datos
+cursor.execute("SELECT opinion FROM opiniones")
+opiniones = [row[0] for row in cursor.fetchall()]
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+# ... (código anterior)
+
+@app.route('/buscar', methods=['POST'])
+def buscar():
+    # Obtener la consulta del usuario
+    query = request.form['query']
+
+    # Asegurarse de que la consulta no esté vacía
+    if not query:
+        return render_template('index.html', query='', recommended_movies=[])
+
+    # Realizar una búsqueda basada en el contenido de las opiniones
+    tfidf_vectorizer = TfidfVectorizer()
+    tfidf_matrix = tfidf_vectorizer.fit_transform(opiniones)
+
+    #Calcular similitud coseno entre consultas y opiniones
+    cosine_sim = linear_kernel(tfidf_matrix, tfidf_vectorizer.transform([query]))
+
+    #Obtener las películas recomendadas
+    recommended_movies = []
+
+    if cosine_sim.shape[0] > 0:
+        sim_scores = list(enumerate(cosine_sim[0]))
+        sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
+
+        # Obtener los índices de las películas similares
+        movie_indices = [i[0] for i in sim_scores]
+
+        # Filtrar los índices válidos para evitar errores
+        valid_indices = [i for i in movie_indices if i < len(movies)]
+
+        # Obtener las películas recomendadas basadas en los índices válidos
+        recommended_movies = [movies[i] for i in valid_indices]
+
+
+    return render_template('index.html', query=query, recommended_movies=recommended_movies)
+
+# ... (código posterior)
+
+if __name__ == '__main__':
+    app.run(debug=True)

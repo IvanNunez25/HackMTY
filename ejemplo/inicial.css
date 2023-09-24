@@ -1,0 +1,43 @@
+:root {
+    --backgnd: #D9042B;
+    --backbtn: #343232;
+    --fontColor: #f3f3f3;
+}
+.principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.principal h2 {
+    margin: 20px;
+    font-size: 24px;
+}
+
+.opciones {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.opcion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    min-height: 200px;
+    margin: 10px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--backbtn);
+    color: var(--fontColor);
+    font-size: 18px;
+}
+
+.opcion img {
+    width: 100px;
+}

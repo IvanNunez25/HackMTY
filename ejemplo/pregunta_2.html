@@ -30,28 +30,49 @@
     
 
     <div class="grid-container" value="abiental">
-        <div class="grid-item">
+        <div class="grid-item"><button>
             <img src="Recursos/Ambiente.png" alt="Logo 1">
             <h2>Al medio ambiente</h2>
             <p>Elige la mejor tarjeta para ti y usala de inmediato. </p>
+        </button>
         </div>
         <div class="grid-item" value="sociedad">
+            <button></button>
             <img src="Recursos/Sociedad.png" alt="Logo 2">
             <h2>La sociedad</h2>
             <div>
                 <p><span>En 5 minutos invierte desde 1 día de plazo a partir de $5,000 MXN</span></p>
             </div>
+        </button>
         </div>
         <div class="grid-item" value="gobierno">
+            <button></button>
             <img src="Recursos/Gobierno.png" alt="Logo 3">
             <h2>La politica</h2>
             <p>Contrata tu credito o paga el actual y solicita uno nuevo.</p>
+        </button>
         </div>
+
 
     </div>
 </div>
 
     <script src="scripts/app.js"></script>
-    <script>mostrar()</script>
+    <script>
+        function guardarSegundo () {
+            var opciones = document.querySelector(".grid-container .grid-item button");
+            var segundoPresionado = localStorage.getItem('valorBotonPresionado');
+            opciones.forEach(function(opcion) {
+                opcion.addEventListener('click', function(){
+                    segundoPresionado += opcion.value;
+                    localStorage.setItem('valorBotonPresionado', segundoPresionado);
+                    window.location.href = "./pregunta_3.html";
+                });
+                
+            })
+        }
+        mostrar();
+        guardarSegundo();
+    </script>
 
 </html>

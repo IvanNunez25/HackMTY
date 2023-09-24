@@ -8,24 +8,12 @@ function guardarPrimerValor () {
         button.addEventListener("click", function() {
             valorBotonPresionado = button.value;
             localStorage.setItem('valorBotonPresionado', valorBotonPresionado);
-            window.location.href = './pregunta_2.html';
-            guardarSegundo();
+            window.location.href = './index.html';
         });
     });
 }
 
-function guardarSegundo () {
-    const opciones = document.querySelector(".grid-container");
-    var segundoPresionado = "";
-    opciones.forEach(function(opcion) {
-        opcion.addEventListener('click', function(){
-            segundoPresionado = opcion.value;
-            localStorage.setItem('valorBotonPresionado', localStorage.getItem('valorButtonPresionado') + segundoPresionado);
-            window.location.href = "./pregunta_3";
-        });
-        
-    })
-}
+
 
 
 function mostrar () {

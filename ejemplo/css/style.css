@@ -19,6 +19,13 @@ body {
     margin-bottom: 30px;
 }
 
+.grid-item button {
+    background: none;
+    border: none;
+    text-align: center;
+    color: #fff;
+}
+
 .grid-item img {
     max-width: 100px; /* Ancho máximo para las imágenes */
     margin-top: 20px; /* Ajusta este valor para mover el logo hacia abajo */

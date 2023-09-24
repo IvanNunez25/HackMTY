@@ -18,7 +18,7 @@ buttons.forEach(function(button) {
         window.location.href = './primera.html';
 
 
-        window.location.href = './primera.html';
+        window.location.href = './pregunta_2.html';
     });
 });
 
